@@ -11,12 +11,13 @@ body {
 .container {
   max-width: 1170px;
   margin: auto;
+  width: 90%;
 }
 
 .header {
   background: linear-gradient(180deg, rgba(98, 20, 2, 0.31) 0%, #621402 85.62%),
     url("../img/bg.jpg") no-repeat center top / cover;
-  min-height: 100vh;
+  padding-bottom: 60px;
 }
 
 .navbar {
@@ -26,7 +27,16 @@ body {
   align-items: center;
 }
 
+.m-menu {
+  display: none;
+}
+
+.nav {
+  position: relative;
+}
+
 .menu {
+  /* position: relative; */
   list-style-type: none;
   display: flex;
   margin: 0;
@@ -184,13 +194,19 @@ body {
 }
 
 .select-cinema {
-  min-width: 470px;
+  width: 470px;
 }
 
 .scheme {
   margin-bottom: 40px;
   background: rgba(36, 36, 36, 0.18);
   border-radius: 10px;
+  /* overflow-x: auto; */
+}
+
+.scheme-svg {
+  min-width: 1170px;
+  /* min-height: 600px; */
 }
 
 .scheme path:not(.light) {
@@ -221,6 +237,7 @@ body {
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   max-width: 1024px;
+  width: 90%;
   margin: auto;
   padding-top: 22px;
   padding-bottom: 38px;
@@ -265,4 +282,94 @@ body {
   line-height: 21px;
   padding: 24px 52px;
   text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+  .select-cinema {
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+  .session {
+    flex-wrap: wrap;
+  }
+  .session-date {
+    margin-bottom: 40px;
+    flex-basis: 70%;
+  }
+  .session-time {
+    order: 2;
+  }
+  .session-cinema {
+    order: 3px;
+  }
+  .menu-item {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 560px;
+  }
+  .menu {
+    display: none;
+  }
+  .m-menu {
+    display: block;
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .menu {
+    /* display: block; */
+    position: absolute;
+    left: 0;
+    top: 40;
+    padding: 20px;
+    margin-left: 0;
+    flex-direction: column;
+    background-color: #621402;
+    z-index: 9;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: opacity 0.5s;
+  }
+
+  .is-open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .menu-item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .film-description {
+    margin-right: 30px;
+  }
+
+  .film {
+    flex-direction: column;
+  }
+
+  .film-trailer {
+    margin-right: auto;
+    margin-left: 0;
+    margin-top: 40px;
+  }
 }
